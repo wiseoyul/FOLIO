@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOLIO. | Architecture & Interior Studio</title>
+  
+  <!-- 구글 웹폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <!-- ========================================================================
+       [영역 1] 상단 헤더
+       ======================================================================== -->
+  <header class="container">
+    <div class="header-left">
+      <a href="#" class="logo">FOLIO.</a>
+      <span class="logo-sub">ARCHITECTURE &amp; INTERIOR</span>
+    </div>
+
+    <div class="header-right">
+      <nav class="nav-links">
+        <a href="#about">스튜디오</a>
+        <a href="#works">프로젝트</a>
+        <a href="#approach">진행 방식</a>
+      </nav>
+      <!-- 클릭 시 상담 팝업창 열림 -->
+      <button class="btn-header" onclick="openModal()">
+        <span>문의하기</span>
+        <span>↗</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       [영역 2] 메인 비주얼 
+       ======================================================================== -->
+  <section class="hero">
+    <img id="heroImg" class="hero-bg" src="./images/hero-01.jpg" alt="Serein House">
+
+    <div class="hero-overlay">
+      <div>
+        <p class="hero-tag">THOUGHTFUL SPACES, TIMELESS LIVING</p>
+        <h1 class="hero-title">Spaces for<br>better living.</h1>
+        <p class="hero-desc">공간의 본질을 생각하고,<br>그 안에 담길 일상을 설계합니다.</p>
+        <a href="#works" class="btn-hero">
+          <span>프로젝트 둘러보기</span>
+          <span>↗</span>
+        </a>
+      </div>
+
+      <!-- 좌측 하단 슬라이드 번호 표시 (클릭하면 다음 사진으로 전환) -->
+      <div class="hero-pagination" onclick="nextSlide()" title="클릭하여 다음 이미지 보기">
+        <span id="slideCurrent">01</span>
+        <div class="page-bar">
+          <div id="pageBarFill" class="page-bar-fill"></div>
+        </div>
+        <span>03</span>
+      </div>
+    </div>
+
+    <!-- 우측 하단 프로젝트 이름 캡션 -->
+    <div class="hero-caption">
+      <strong id="heroCaptionTitle">SEREIN HOUSE</strong>
+      <span id="heroCaptionSub">SEOUL, KOREA · PRIVATE RESIDENCE</span>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       [영역 3] 스튜디오 소개 (01 / ABOUT FOLIO)
+       ======================================================================== -->
+  <section id="about" class="about">
+    <div>
+      <p class="section-label">01 / ABOUT FOLIO</p>
+      <p class="about-left-sub">오래 머물고 싶은 공간</p>
+    </div>
+
+    <div>
+      <h2 class="about-title">좋은 공간은,<br>더 나은 일상의 시작이 됩니다.</h2>
+      <p class="about-desc">
+        폴리오는 건축과 인테리어를 통해 사람과 공간의 관계를 새롭게 만듭니다.<br>
+        유행보다 본질을, 장식보다 쓰임을 생각하며 당신만의 이야기를 담습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       [영역 4] 프로젝트 3종 (Selected works)
+       ======================================================================== -->
+  <section id="works" class="works">
+    <div class="works-header">
+      <div class="works-title-group">
+        <h2 class="works-title">Selected works</h2>
+        <span class="works-subtitle">우리의 생각이 머무는 공간들</span>
+      </div>
+      <a href="#works" class="works-more" onclick="alert('아직 준비중입니다.'); return false;">전체 프로젝트 보기 ↗</a>
+    </div>
+
+    <div class="works-grid">
+      <!-- 프로젝트 카드 1 -->
+      <article class="work-card" onclick="openProjectDetail('Serein House', '주거 공간 · 서울 종로구 · 2025')">
+        <div class="work-img-wrap">
+          <img src="./images/work-01.jpg" alt="Serein House">
+        </div>
+        <p class="work-category">RESIDENTIAL</p>
+        <div class="work-title-row">
+          <h3 class="work-name">Serein House</h3>
+          <span class="work-arrow">↗</span>
+        </div>
+        <p class="work-desc">고요한 일상을 담은 도심 속 주거 공간</p>
+        <p class="work-meta">SEOUL · 2025</p>
+      </article>
+
+      <!-- 프로젝트 카드 2 -->
+      <article class="work-card" onclick="openProjectDetail('Morrow Coffee', '상업 공간 · 서울 성수동 · 2025')">
+        <div class="work-img-wrap">
+          <img src="./images/work-02.jpg" alt="Morrow Coffee">
+        </div>
+        <p class="work-category">COMMERCIAL</p>
+        <div class="work-title-row">
+          <h3 class="work-name">Morrow Coffee</h3>
+          <span class="work-arrow">↗</span>
+        </div>
+        <p class="work-desc">커피와 대화, 취향이 만나는 작은 여유</p>
+        <p class="work-meta">SEONGSU · 2025</p>
+      </article>
+
+      <!-- 프로젝트 카드 3 -->
+      <article class="work-card" onclick="openProjectDetail('Still Stay', '스테이 · 제주 · 2024')">
+        <div class="work-img-wrap">
+          <img src="./images/work-03.jpg" alt="Still Stay">
+        </div>
+        <p class="work-category">HOSPITALITY</p>
+        <div class="work-title-row">
+          <h3 class="work-name">Still Stay</h3>
+          <span class="work-arrow">↗</span>
+        </div>
+        <p class="work-desc">머무는 순간이 여행이 되는 휴식의 공간</p>
+        <p class="work-meta">JEJU · 2024</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       [영역 5] 작업 방식 (02 / OUR APPROACH)
+       ======================================================================== -->
+  <section id="approach" class="approach">
+    <div>
+      <p class="section-label">02 / OUR APPROACH</p>
+      <h2 class="approach-title">From a thought<br>to a place.</h2>
+      <p class="approach-sub">생각에서 공간이 되기까지</p>
+    </div>
+
+    <div class="approach-steps">
+      <div class="step-item">
+        <span class="step-num">01</span>
+        <h3 class="step-eng">Listen</h3>
+        <h4 class="step-kor">당신의 이야기를 듣습니다</h4>
+        <p class="step-desc">취향과 생활, 그리고 공간의 가능성.<br>충분한 대화로 프로젝트를 시작합니다.</p>
+      </div>
+
+      <div class="step-item">
+        <span class="step-num">02</span>
+        <h3 class="step-eng">Design</h3>
+        <h4 class="step-kor">본질에 집중해 설계합니다</h4>
+        <p class="step-desc">빛과 소재, 동선과 비례를 살려<br>당신에게 맞는 공간을 구체화합니다.</p>
+      </div>
+
+      <div class="step-item">
+        <span class="step-num">03</span>
+        <h3 class="step-eng">Complete</h3>
+        <h4 class="step-kor">끝까지 함께 완성합니다</h4>
+        <p class="step-desc">설계부터 현장, 마지막 디테일까지.<br>일관된 시선으로 완성도를 지킵니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       [영역 6] 상담 문의 배너 (03 / START A CONVERSATION)
+       ======================================================================== -->
+  <section class="cta-section">
+    <div>
+      <p class="cta-label">03 / START A CONVERSATION</p>
+      <h2 class="cta-title">당신의 다음 공간,<br>함께 그려볼까요?</h2>
+      <p class="cta-tags">RESIDENTIAL &nbsp;|&nbsp; COMMERCIAL &nbsp;|&nbsp; HOSPITALITY</p>
+    </div>
+
+    <div class="cta-right">
+      <p class="cta-desc">새로운 시작을 위한 첫 번째 대화.<br>폴리오가 당신의 이야기를 기다립니다.</p>
+      <button class="btn-cta" onclick="openModal()">
+        <span>상담하기</span>
+        <span>↗</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       [영역 7] 하단 푸터 (Footer)
+       ======================================================================== -->
+  <footer>
+    <div class="footer-left">
+      <div class="footer-logo">FOLIO.</div>
+      <div class="footer-info">
+        <p>건축과 일상 사이, 폴리오</p>
+        <span>대표 위서율 &nbsp;|&nbsp; 사업자등록번호 123-45-67890 &nbsp;|&nbsp; 서울시 종로구 자하문로</span>
+      </div>
+    </div>
+
+    <a href="mailto:hello@folio.studio" class="footer-email">hello@folio.studio</a>
+
+    <div class="footer-right">
+      <div class="footer-socials">
+        <a href="#">맨 위로 ↗</a>
+      </div>
+      <p class="copyright">© 2026 FOLIO STUDIO. ALL RIGHTS RESERVED.</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ==========================================================================
+     [팝업창] 프로젝트 상담 신청 모달
+     ========================================================================== -->
+<div id="contactModal" class="modal-backdrop">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h3>프로젝트 상담 문의</h3>
+    <p>공간 유형과 간략한 내용을 남겨주시면 담당 디렉터가 연락드립니다.</p>
+    
+    <form onsubmit="submitForm(event)">
+      <div class="form-group">
+        <label>성함 / 기업명</label>
+        <input type="text" required placeholder="홍길동">
+      </div>
+      <div class="form-group">
+        <label>연락처</label>
+        <input type="tel" required placeholder="010-0000-0000">
+      </div>
+      <div class="form-group">
+        <label>공간 유형</label>
+        <select>
+          <option>주거 공간 (Residential)</option>
+          <option>상업 공간 (Commercial)</option>
+          <option>스테이 / 호스피탈리티 (Hospitality)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>문의 내용</label>
+        <textarea rows="3" placeholder="예상 면적, 위치, 희망 일정 등을 자유롭게 적어주세요."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">상담 신청 보내기</button>
+    </form>
+  </div>
+</div>
+
+<!-- 분리된 JavaScript 기능 파일 연결 -->
+<script src="script.js"></script>
+</body>
+</html>

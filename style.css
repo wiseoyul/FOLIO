@@ -1,0 +1,691 @@
+:root {
+  --bg-ivory: #F5F4F0;        /* 메인 배경 아이보리 컬러 */
+  --bg-sage: #EAECE6;         /* 작업 방식(Approach) 섹션 배경 컬러 */
+  --deep-olive: #263024;      /* 딥 올리브 메인 포인트 컬러 */
+  --accent-lime: #D9E2A8;     /* 하단 상담하기 버튼 라임 컬러 */
+  --text-main: #1E241D;       /* 기본 진한 텍스트 컬러 */
+  --text-sub: #686E65;        /* 보조 설명 회색 텍스트 컬러 */
+  --border-color: #DCDCD6;    /* 얇은 구분선 컬러 */
+  --max-width: 1920px;        /* 시안 기준 최대 가로 사이즈 (1920px) */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; 
+}
+
+body {
+  background-color: var(--bg-ivory);
+  color: var(--text-main);
+  font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 전체 레이아웃 컨테이너  */
+.wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background-color: var(--bg-ivory);
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  padding: 0 80px; /* 좌우 여백 80px */
+}
+
+/* ==========================================================================
+   2. 상단 헤더 (네비게이션 바)
+   ========================================================================== */
+header {
+  height: 100px; /* 헤더 높이 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-ivory);
+  position: sticky; 
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+
+.logo-sub {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-sub);
+  text-transform: uppercase;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 48px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.btn-header {
+  background-color: var(--deep-olive);
+  color: #FFFFFF;
+  padding: 16px 28px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-header:hover {
+  background-color: #364433;
+}
+
+/* ==========================================================================
+   3. 메인 비주얼 (Hero Section)
+   ========================================================================== */
+.hero {
+  position: relative;
+  height: 820px; /* 메인 비주얼 세로 높이 */
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  background-color: #2B3329; /* 이미지 로딩 전 배경색 */
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 비율 깨짐 없이 꽉 채움 */
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* 좌측 반투명 어두운 오버레이 영역 */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 38%; 
+  height: 100%;
+  background: rgba(20, 24, 19, 0.72); 
+  backdrop-filter: blur(2px);
+  padding: 90px 60px 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #FFFFFF;
+}
+
+.hero-tag {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-size: 76px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 36px;
+}
+
+.hero-desc {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 48px;
+}
+
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 240px;
+  padding: 18px 24px;
+  background-color: var(--bg-ivory);
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+.btn-hero:hover {
+  transform: translateY(-2px);
+}
+
+.hero-pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.page-bar {
+  width: 60px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.page-bar-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 33.3%;
+  background-color: #FFFFFF;
+  transition: width 0.4s;
+}
+
+.hero-caption {
+  position: absolute;
+  right: 80px;
+  bottom: 45px;
+  z-index: 2;
+  text-align: right;
+  color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.hero-caption strong {
+  display: block;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.hero-caption span {
+  font-size: 12px;
+  opacity: 0.85;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   4. 스튜디오 소개 (01 / ABOUT FOLIO)
+   ========================================================================== */
+.about {
+  padding: 140px 80px;
+  border-bottom: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-sub);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.about-left-sub {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.about-title {
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.about-desc {
+  font-size: 18px;
+  color: var(--text-sub);
+  line-height: 1.75;
+}
+
+/* ==========================================================================
+   5. 프로젝트 3종 (Selected works)
+   ========================================================================== */
+.works {
+  padding: 120px 80px 140px;
+}
+
+.works-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+}
+
+.works-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.works-title {
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.works-subtitle {
+  font-size: 16px;
+  color: var(--text-sub);
+}
+
+.works-more {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.works-more:hover {
+  border-bottom-color: var(--text-main);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.work-card {
+  display: block;
+  cursor: pointer;
+}
+
+.work-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3.3; 
+  overflow: hidden;
+  margin-bottom: 24px;
+  background-color: #DCDCD6;
+}
+
+.work-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.work-card:hover .work-img-wrap img {
+  transform: scale(1.04);
+}
+
+.work-category {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-sub);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.work-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.work-name {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.work-arrow {
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+
+.work-card:hover .work-arrow {
+  transform: translate(4px, -4px);
+}
+
+.work-desc {
+  font-size: 15px;
+  color: var(--text-sub);
+  margin-bottom: 16px;
+}
+
+.work-meta {
+  font-size: 12px;
+  color: #8C9189;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   6. 작업 방식 (02 / OUR APPROACH)
+   ========================================================================== */
+.approach {
+  background-color: var(--bg-sage);
+  padding: 130px 80px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.approach-title {
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 16px 0 24px;
+}
+
+.approach-sub {
+  font-size: 15px;
+  color: var(--text-sub);
+}
+
+.approach-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.step-item {
+  border-top: 1px solid #C8CCC3;
+  padding-top: 28px;
+}
+
+.step-num {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 24px;
+  display: block;
+}
+
+.step-eng {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.step-kor {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text-main);
+}
+
+.step-desc {
+  font-size: 15px;
+  color: var(--text-sub);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   7. 상담 문의 배너 (03 / START A CONVERSATION)
+   ========================================================================== */
+.cta-section {
+  background-color: var(--deep-olive);
+  color: #FFFFFF;
+  padding: 130px 80px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: end;
+}
+
+.cta-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 24px;
+}
+
+.cta-title {
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  margin-bottom: 70px;
+}
+
+.cta-tags {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 80px;
+}
+
+.cta-desc {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+}
+
+.btn-cta {
+  width: 100%;
+  max-width: 520px;
+  background-color: var(--accent-lime);
+  color: var(--deep-olive);
+  padding: 24px 32px;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-cta:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   8. 하단 푸터 (Footer)
+   ========================================================================== */
+footer {
+  padding: 64px 80px;
+  background-color: var(--bg-ivory);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-left {
+  display: flex;
+  gap: 48px;
+}
+
+.footer-logo {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.footer-info p {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.footer-info span {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.footer-email {
+  font-size: 15px;
+  color: var(--text-sub);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 4px;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.copyright {
+  font-size: 11px;
+  color: #8C9189;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   9. 상담 문의 팝업 모달
+   ========================================================================== */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 24, 19, 0.7);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.modal-box {
+  background: var(--bg-ivory);
+  width: 100%;
+  max-width: 540px;
+  padding: 48px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-box h3 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.modal-box p {
+  font-size: 14px;
+  color: var(--text-sub);
+  margin-bottom: 28px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  background: #FFFFFF;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--deep-olive);
+  color: #FFFFFF;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   10. 반응형 처리 (태블릿 및 모바일 화면 대응)
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .container, header, .about, .works, .approach, .cta-section, footer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .hero-overlay { width: 55%; }
+  .hero-title { font-size: 56px; }
+  .works-grid { grid-template-columns: 1fr; }
+  .about, .approach, .cta-section { grid-template-columns: 1fr; gap: 48px; }
+  .cta-right { padding-left: 0; }
+}
+
+@media (max-width: 768px) {
+  .nav-links, .logo-sub { display: none; }
+  .hero-overlay { width: 100%; padding: 40px; }
+  .hero-title { font-size: 44px; }
+  .approach-steps { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 32px; }
+  .footer-right { text-align: left; }
+  .footer-socials { justify-content: flex-start; }
+}
