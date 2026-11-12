@@ -3,17 +3,17 @@
    ========================================================================== */
 const heroSlides = [
   {
-    img: "./images/hero-01.jpg",              // 첫 번째 메인 이미지 경로
+    img: "./hero-01.jpg",              // 첫 번째 메인 이미지 경로
     title: "SEREIN HOUSE",                   // 우측 하단 큰 제목
     sub: "SEOUL, KOREA · PRIVATE RESIDENCE"  // 우측 하단 작은 설명
   },
   {
-    img: "./images/hero-02.jpg",              // 두 번째 메인 이미지 경로
+    img: "./hero-02.jpg",              // 두 번째 메인 이미지 경로
     title: "MORROW COFFEE",
     sub: "SEONGSU, KOREA · COMMERCIAL SPACE"
   },
   {
-    img: "./images/hero-03.jpg",              // 세 번째 메인 이미지 경로
+    img: "./hero-03.jpg",              // 세 번째 메인 이미지 경로
     title: "STILL STAY",
     sub: "JEJU, KOREA · BOUTIQUE HOSPITALITY"
   }
